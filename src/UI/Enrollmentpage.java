@@ -13,8 +13,10 @@ public class Enrollmentpage {
     Homepage h=new Homepage();
     public void enroll (){
         Listview l=new Listview();
-        System.out.print("Enrollment page\n" +
-                "====================================================================================================\n");
+        System.out.print("""
+                Enrollment page
+                ====================================================================================================
+                """);
 l.coursesview();
 System.out.print("Please make one of the following:\n" +
         "Enter the course id that you want to enroll the student to\n" +

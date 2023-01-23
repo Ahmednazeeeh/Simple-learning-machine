@@ -5,12 +5,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.text.CollationKey;
-import java.text.Collator;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.Scanner;
 public class Enrolling {
     JSONObject obj = new JSONObject();
     Courses c=new Courses();
@@ -30,7 +24,7 @@ public class Enrolling {
             else {
                 if (obj.has(y)) {                                   //existing record
 
-                  // if (obj.getJSONArray(y).toString().contains(b)){          //same course validation
+                                                                    //same course validation
                     if (c.duplicate(z, x)){
                         System.out.print("Failed to enroll Student can't enroll in the same course twice");
                         }
@@ -45,7 +39,7 @@ public class Enrolling {
                    }
 
                 }
-                else {                                  //new record
+                else {                                                  //new record
                     obj.put(y,list.put(x));
                     System.out.print("Student is Enrolled Successfully in the "+c.coursename(x)+" course");
                 }
@@ -77,7 +71,6 @@ public void unenroll(int z,int x){
         else {
             if (obj.has(y)) {                                                     // valdidate student existence
                 if (c.duplicate(z, x)){                                          //validate course existence
-                    if(obj.getJSONArray(y).length()>1){                         //validate 1 cousre at least is enrolled
                         for(int i=0;i<obj.getJSONArray(y).length();i++){        //get index of course
                             if(obj.getJSONArray(y).getInt(i) == x)
                             {
@@ -85,10 +78,7 @@ public void unenroll(int z,int x){
                                System.out.println("Unenrolled successfully from the "+c.coursename(x)+" course");
                             }
                         }
-                    }
-                    else {
-                        System.out.print("Student must be enrolled at least in one course\n");
-                    }
+
                 }
                 else {
 
